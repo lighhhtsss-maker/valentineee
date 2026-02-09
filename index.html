@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>valentine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow: hidden;
+    }
+
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .content {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: rgba(255, 240, 245, 0.65);
+      text-align: center;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #ff2f6d;
+      font-size: 30px;
+      margin-bottom: 25px;
+    }
+
+    button {
+      font-size: 18px;
+      padding: 12px 26px;
+      margin: 10px;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+    }
+
+    #yes {
+      background-color: #ff4d6d;
+      color: white;
+    }
+
+    #no {
+      background-color: #ddd;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ВИДЕО ФОН -->
+  <video class="video-bg" autoplay muted loop playsinline>
+    <source src="IMG_9231.MP4" type="video/mp4">
+  </video>
+
+  <!-- ПЕРВЫЙ ЭКРАН -->
+  <div class="content" id="start">
+    <h1>will you be my valentine?💘</h1>
+
+    <button id="yes" onclick="yesClick()">Yes💖</button>
+    <button id="no" onclick="moveNo()">No💔</button>
+  </div>
+
+  <script>
+    function yesClick() {
+      document.body.innerHTML = `
+        <div style="
+          height:100vh;
+          display:flex;
+          flex-direction:column;
+          justify-content:center;
+          align-items:center;
+          background:#fff0f5;
+          text-align:center;
+          padding:20px;
+        ">
+          <img src="https://i.postimg.cc/y8tSp5Sc/ca4e7078bf86f5058a7049dc6eebeec6.jpg" style="
+            width:300px;
+            border-radius:24px;
+            margin-bottom:20px;
+          ">
+          <h1 style="color:#ff2f6d;">YAYYY!!❤️</h1>
+          <p style="font-size:22px;">ура крутяк🥰🥹</p>
+        </div>
+      `;
+    }
+
+    function moveNo() {
+      const noBtn = document.getElementById("no");
+      const x = Math.random() * (window.innerWidth - 120);
+      const y = Math.random() * (window.innerHeight - 60);
+      noBtn.style.left = x + "px";
+      noBtn.style.top = y + "px";
+    }
+  </script>
+
+</body>
+</html>
